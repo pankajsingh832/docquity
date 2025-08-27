@@ -1,0 +1,824 @@
+.webinar-dashboard {
+  padding: 2rem 0;
+}
+
+// Live Webinars Section styling to match the image exactly
+.live-webinars-section {
+  .live-webinars-grid {
+    .row {
+      margin: 0 -12px;
+      
+      .col-lg-4 {
+        padding: 0 12px;
+        
+        .webinar-card {
+          background: #fdf2e9;
+          border: 1px solid #f3e8db;
+          border-radius: 12px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+          
+          &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+          }
+          
+          .thumbnail-container {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            
+            .live-video-thumbnail,
+            .thumbnail {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            
+            .live-controls {
+              position: absolute;
+              top: 12px;
+              left: 12px;
+              right: 12px;
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              
+              .live-status {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                
+                .live-badge {
+                  background: #dc3545;
+                  color: white;
+                  padding: 4px 12px;
+                  border-radius: 20px;
+                  font-size: 12px;
+                  font-weight: 600;
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+                }
+                
+                .viewer-count {
+                  background: rgba(0, 0, 0, 0.7);
+                  color: white;
+                  padding: 4px 12px;
+                  border-radius: 20px;
+                  font-size: 12px;
+                  font-weight: 500;
+                }
+              }
+              
+              .live-actions {
+                display: flex;
+                gap: 4px;
+                
+                .live-btn {
+                  background: rgba(0, 0, 0, 0.7);
+                  border: none;
+                  border-radius: 20px;
+                  width: 32px;
+                  height: 32px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 14px;
+                  cursor: pointer;
+                  color: white;
+                }
+              }
+            }
+            
+            .live-indicator {
+              position: absolute;
+              top: 12px;
+              left: 12px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              
+              .badge.bg-danger {
+                background: #dc3545 !important;
+                color: white;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+              }
+              
+              .participants-count {
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+              }
+            }
+            
+            .duration-badge {
+              position: absolute;
+              bottom: 12px;
+              right: 12px;
+              background: rgba(0, 0, 0, 0.8);
+              color: white;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 12px;
+              font-weight: 500;
+            }
+          }
+          
+          .card-body {
+            padding: 16px;
+            background: #fdf2e9;
+            
+            .badge.bg-warning {
+              background-color: #f59e0b !important;
+              color: #000;
+              font-weight: 600;
+              padding: 4px 8px;
+              border-radius: 12px;
+              font-size: 12px;
+              
+              &.text-danger {
+                background-color: #ef4444 !important;
+                color: white;
+              }
+            }
+            
+            .card-title {
+              color: #1f2937;
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 1.4;
+              margin-bottom: 12px;
+            }
+            
+            .instructor-info {
+              margin-bottom: 12px;
+              
+              .instructor-avatar {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+              
+              .instructor-name {
+                color: #6b7280;
+                font-size: 14px;
+                font-weight: 500;
+              }
+              
+              .instructor-org {
+                color: #9ca3af;
+                font-size: 12px;
+              }
+            }
+            
+            .key-highlights {
+              background: #f3f4f6;
+              padding: 12px;
+              border-radius: 8px;
+              margin-bottom: 16px;
+              
+              .highlights-header {
+                font-size: 11px;
+                color: #9ca3af;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-bottom: 6px;
+                letter-spacing: 0.5px;
+              }
+              
+              .highlights-text {
+                font-size: 13px;
+                color: #4b5563;
+                margin: 0;
+                font-weight: 500;
+              }
+            }
+            
+            .btn.btn-dark {
+              background-color: #1f2937;
+              border-color: #1f2937;
+              color: white;
+              width: 100%;
+              font-weight: 500;
+              padding: 12px;
+              border-radius: 8px;
+              font-size: 14px;
+              
+              &:hover {
+                background-color: #111827;
+                border-color: #111827;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Continue watching horizontal scroll
+.continue-watching-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 12px;
+  margin: 0 -8px; // Extend scroll area to edges
+  padding-left: 8px;
+  padding-right: 8px;
+  
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  // Hide scrollbar on mobile
+  @media (max-width: 768px) {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.continue-watching-container {
+  display: flex;
+  gap: 24px;
+  padding: 8px 0;
+  min-width: max-content;
+  
+  app-continue-watching-card {
+    flex-shrink: 0;
+  }
+  
+  // Add padding for better visual spacing
+  &::after {
+    content: '';
+    width: 8px;
+    flex-shrink: 0;
+  }
+}
+
+.continue-watching-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardiology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0;
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.cardiology-featured {
+  width: 100%;
+  height: auto;
+  
+  .webinar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    .thumbnail-container {
+      aspect-ratio: 16/9;
+      position: relative;
+    }
+    
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
+
+// Top Speakers Section
+.speakers-grid {
+  .row {
+    margin: 0 -8px;
+  }
+  
+  // Custom column for 5 items per row
+  .col-lg-2-4 {
+    flex: 0 0 auto;
+    width: 20%;
+    padding: 0 8px;
+    
+    @media (max-width: 1199.98px) {
+      width: 33.333333%;
+    }
+    
+    @media (max-width: 767.98px) {
+      width: 50%;
+    }
+    
+    @media (max-width: 575.98px) {
+      width: 100%;
+    }
+  }
+}
+
+.speaker-card {
+  background: #fdf2e9;
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #f3e8db;
+  box-shadow: 0 2px 8px rgba(243, 232, 219, 0.3);
+  height: 100%;
+  
+  &:hover {
+    background: #fbeee6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(243, 232, 219, 0.5);
+    border-color: #f0dcc9;
+  }
+}
+
+.speaker-avatar-container {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.speaker-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  &.live-avatar {
+    border: 3px solid #dc3545;
+  }
+}
+
+.live-indicator-speaker {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 2px 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border: 1px solid #f3e8db;
+  
+  .live-badge-small {
+    color: #dc3545;
+    font-size: 9px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    letter-spacing: 0.5px;
+  }
+}
+
+.speaker-info {
+  flex: 1;
+  margin-bottom: 8px;
+  
+  .speaker-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+  }
+  
+  .speaker-specialty {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+
+.speaker-arrow {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #9ca3af;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.speaker-card:hover .speaker-arrow {
+  color: #6b7280;
+  transform: translateX(2px);
+}
+
+// Browse by Topic Section
+.topics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #f0f9ff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e0f2fe;
+  
+  @media (max-width: 768px) {
+    gap: 8px;
+    padding: 16px;
+  }
+}
+
+.topic-tag {
+  background: #ffffff;
+  border: 1px solid #e0f2fe;
+  color: #0369a1;
+  padding: 12px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  
+  &:hover {
+    background: #f8fafc;
+    border-color: #bae6fd;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    color: #0284c7;
+  }
+  
+  &.active {
+    background: #0369a1;
+    color: white;
+    border-color: #0369a1;
+    box-shadow: 0 2px 4px rgba(3, 105, 161, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .webinar-dashboard {
+    padding: 1rem 0;
+  }
+  
+  .row.g-4 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+  
+  .continue-watching-scroll {
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .continue-watching-container {
+    gap: 16px;
+  }
+  
+  .speakers-scroll {
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .speakers-container {
+    gap: 12px;
+  }
+  
+  .speaker-card {
+    min-width: 240px;
+    padding: 12px;
+  }
+  
+  .speaker-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .webinars-filter-section {
+    .search-and-filters {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .filter-checkboxes {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  }
+}
+
+// Search and Filter Section
+.webinars-filter-section {
+  .search-and-filters {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    
+    .search-box {
+      position: relative;
+      flex: 0 0 300px;
+      
+      i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+        font-size: 16px;
+      }
+      
+      .search-input {
+        width: 100%;
+        padding: 12px 12px 12px 40px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        background: white;
+        outline: none;
+        transition: border-color 0.2s;
+        
+        &:focus {
+          border-color: #007bff;
+          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+        }
+        
+        &::placeholder {
+          color: #999;
+        }
+      }
+    }
+    
+    .filter-checkboxes {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+      
+      .filter-group {
+        .filter-checkbox {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          font-size: 14px;
+          color: #333;
+          user-select: none;
+          
+          input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #007bff;
+            cursor: pointer;
+          }
+          
+          .filter-text {
+            font-weight: 500;
+          }
+          
+          i {
+            font-size: 12px;
+            color: #666;
+            margin-left: 4px;
+          }
+          
+          &:hover {
+            color: #007bff;
+          }
+        }
+      }
+    }
+  }
+}
+
+// New Sidebar Layout for Webinars You May Like Section
+.webinars-main-container {
+  .filters-sidebar {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e9ecef;
+    
+    .search-section {
+      .search-box {
+        position: relative;
+        
+        .search-icon {
+          position: absolute;
+          left: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #6c757d;
+          font-size: 16px;
+          z-index: 2;
+        }
+        
+        .search-input {
+          width: 100%;
+          padding: 14px 16px 14px 44px;
+          border: 1px solid #dee2e6;
+          border-radius: 8px;
+          font-size: 14px;
+          background: white;
+          outline: none;
+          transition: all 0.2s ease;
+          
+          &:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+          }
+          
+          &::placeholder {
+            color: #adb5bd;
+          }
+        }
+      }
+    }
+    
+    .filter-sections {
+      .filter-section {
+        border-bottom: 1px solid #e9ecef;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        .filter-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 0;
+          cursor: pointer;
+          transition: color 0.2s ease;
+          
+          &:hover {
+            color: #007bff;
+          }
+          
+          .filter-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #495057;
+          }
+          
+          i {
+            font-size: 14px;
+            color: #6c757d;
+            transition: transform 0.2s ease;
+          }
+        }
+        
+        .filter-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+          
+          &.expanded {
+            max-height: 300px;
+          }
+          
+          .filter-options {
+            padding-bottom: 16px;
+            
+            .filter-option {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              padding: 8px 0;
+              cursor: pointer;
+              transition: color 0.2s ease;
+              
+              &:hover {
+                color: #007bff;
+                
+                .checkmark {
+                  border-color: #007bff;
+                }
+              }
+              
+              input[type="checkbox"] {
+                display: none;
+                
+                &:checked + .checkmark {
+                  background-color: #007bff;
+                  border-color: #007bff;
+                  
+                  &::after {
+                    display: block;
+                  }
+                }
+              }
+              
+              .checkmark {
+                position: relative;
+                width: 18px;
+                height: 18px;
+                border: 2px solid #dee2e6;
+                border-radius: 3px;
+                background: white;
+                transition: all 0.2s ease;
+                
+                &::after {
+                  content: "";
+                  position: absolute;
+                  display: none;
+                  left: 5px;
+                  top: 2px;
+                  width: 4px;
+                  height: 8px;
+                  border: solid white;
+                  border-width: 0 2px 2px 0;
+                  transform: rotate(45deg);
+                }
+              }
+              
+              .option-text {
+                font-size: 14px;
+                color: #495057;
+                line-height: 1.4;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .webinars-content {
+    .webinars-grid {
+      .row {
+        margin: 0 -12px;
+        
+        .col-lg-6 {
+          padding: 0 12px;
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 991.98px) {
+  .webinars-main-container {
+    .filters-sidebar {
+      margin-bottom: 24px;
+    }
+  }
+}

@@ -1,0 +1,212 @@
+.suggested-webinar-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 24px;
+
+  .card-header {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+
+    .sponsor-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .sponsor-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .sponsor-details {
+        .sponsor-name {
+          font-size: 14px;
+          font-weight: 600;
+          margin: 0;
+          color: #333;
+        }
+
+        .sponsor-meta {
+          font-size: 12px;
+          color: #666;
+          margin: 0;
+        }
+      }
+    }
+
+    .follow-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #0056b3;
+      }
+    }
+  }
+
+  .card-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+
+    .webinar-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+
+  .card-content {
+    padding: 16px;
+
+    .credits-section {
+      margin-bottom: 12px;
+
+      .credits-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #fff3cd;
+        color: #856404;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 14px;
+        font-weight: 500;
+
+        i {
+          color: #ffc107;
+        }
+
+        .expiry-text {
+          font-size: 12px;
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .webinar-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0 0 16px 0;
+      color: #333;
+    }
+
+    .key-highlights {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+
+      .highlights-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0 0 4px 0;
+      }
+
+      .highlights-text {
+        font-size: 14px;
+        color: #333;
+        margin: 0;
+      }
+    }
+
+    .engagement-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #666;
+
+      .stat-separator {
+        color: #ccc;
+      }
+
+      .views-count {
+        margin-left: auto;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 12px;
+
+      .action-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: none;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #666;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #f8f9fa;
+        }
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .suggested-webinar-card {
+    .card-header {
+      padding: 12px;
+    }
+
+    .card-content {
+      padding: 12px;
+    }
+
+    .action-buttons {
+      .action-btn {
+        padding: 6px 8px;
+        font-size: 12px;
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}

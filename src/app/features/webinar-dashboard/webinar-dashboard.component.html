@@ -1,0 +1,254 @@
+<div class="webinar-dashboard">
+  <!-- Live Webinars Section -->
+  <section class="mb-5 live-webinars-section">
+    <app-section-header 
+      title="Live webinars" 
+      [showViewAll]="liveWebinars().length > 3">
+    </app-section-header>
+    
+    <div class="live-webinars-grid">
+      <div class="row g-4">
+        @for (webinar of liveWebinars().slice(0, 3); track webinar.id) {
+          <div class="col-lg-4 col-md-6">
+            <app-webinar-card [webinar]="webinar"></app-webinar-card>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Webinars Section -->
+  @if (upcomingWebinars().length > 0) {
+    <section class="mb-5 upcoming-webinars-section">
+      <app-section-header 
+        title="Upcoming webinars" 
+        [showViewAll]="upcomingWebinars().length > 3">
+      </app-section-header>
+      
+      <div class="upcoming-webinars-grid">
+        <div class="row g-4">
+          @for (webinar of upcomingWebinars().slice(0, 3); track webinar.id) {
+            <div class="col-lg-4 col-md-6">
+              <app-upcoming-webinar-card [webinar]="webinar"></app-upcoming-webinar-card>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Continue Watching Section -->
+  @if (continueWatching().length > 0) {
+    <section class="mb-5">
+      <app-section-header 
+        title="Continue watching" 
+        [showViewAll]="continueWatching().length > 4">
+      </app-section-header>
+      
+      <div class="continue-watching-scroll">
+        <div class="continue-watching-container">
+          @for (webinar of continueWatching(); track webinar.id; let i = $index) {
+            <app-continue-watching-card 
+              [webinar]="webinar"
+              [progressPercentage]="getProgressPercentage(i)">
+            </app-continue-watching-card>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Cardiology Webinars Section -->
+  @if (cardiologyWebinars().length > 0) {
+    <section class="mb-5">
+      <app-section-header 
+        title="Webinars based on cardiology" 
+        [showViewAll]="cardiologyWebinars().length > 3">
+      </app-section-header>
+      
+      <div class="cardiology-grid">
+        @for (webinar of cardiologyWebinars().slice(0, 3); track webinar.id) {
+          <div class="cardiology-featured">
+            <app-webinar-card [webinar]="webinar"></app-webinar-card>
+          </div>
+        }
+      </div>
+    </section>
+  }  <!-- Top Speakers Section -->
+  <section class="mb-5">
+    <app-section-header 
+      title="Top speakers" 
+      [showViewAll]="true">
+    </app-section-header>
+    
+    <div class="speakers-grid">
+      <div class="row g-3">
+        @for (speaker of topSpeakers(); track speaker.id) {
+          <div class="col-lg-2-4 col-md-4 col-sm-6">
+            <div class="speaker-card">
+              <div class="speaker-avatar-container">
+                <img 
+                  [src]="speaker.avatarUrl" 
+                  [alt]="speaker.name"
+                  class="speaker-avatar"
+                  [class.live-avatar]="speaker.isLive">
+                @if (speaker.isLive) {
+                  <div class="live-indicator-speaker">
+                    <span class="live-badge-small">🔴 Live</span>
+                  </div>
+                }
+              </div>
+              <div class="speaker-info">
+                <h6 class="speaker-name">{{ speaker.name }}</h6>
+                <p class="speaker-specialty">{{ speaker.specialty }}</p>
+              </div>
+              <div class="speaker-arrow">
+                <i class="bi bi-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse by Topic Section -->
+  <section class="mb-5">
+    <app-section-header 
+      title="Browse by topic" 
+      [showViewAll]="true">
+    </app-section-header>
+    
+    <div class="topics-grid">
+      @for (topic of browseTopics(); track topic.id) {
+        <button class="topic-tag" [class.active]="topic.isActive">
+          {{ topic.name }} ({{ topic.count }})
+        </button>
+      }
+    </div>
+  </section>
+
+  <!-- Webinars You May Like Section -->
+  <section class="mb-5">
+    <app-section-header 
+      title="Webinars you may like" 
+      [showViewAll]="true">
+    </app-section-header>
+    
+    <div class="webinars-main-container">
+      <div class="row">
+        <!-- Left Sidebar with Filters -->
+        <div class="col-lg-3 col-md-4">
+          <div class="filters-sidebar">
+            <!-- Search Box -->
+            <div class="search-section mb-4">
+              <div class="search-box">
+                <i class="bi bi-search search-icon"></i>
+                <input 
+                  type="text" 
+                  placeholder="Search" 
+                  [ngModel]="searchQuery()"
+                  (ngModelChange)="updateSearchQuery($event)"
+                  class="search-input">
+              </div>
+            </div>
+            
+            <!-- Filter Sections -->
+            <div class="filter-sections">
+              <!-- Specialty Filter -->
+              <div class="filter-section">
+                <div class="filter-header" (click)="updateSpecialtyFilter(!filters().specialty)">
+                  <span class="filter-title">Specialty</span>
+                  <i class="bi" [class]="filters().specialty ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                </div>
+                <div class="filter-content" [class.expanded]="filters().specialty">
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input type="checkbox" name="specialty" value="accupuncture">
+                      <span class="checkmark"></span>
+                      <span class="option-text">Accupuncture</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="specialty" value="allergy">
+                      <span class="checkmark"></span>
+                      <span class="option-text">Allergy and Immunology</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="specialty" value="anesthesiology">
+                      <span class="checkmark"></span>
+                      <span class="option-text">Anaesthesiology</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="specialty" value="nutrition">
+                      <span class="checkmark"></span>
+                      <span class="option-text">Clinical Nutrition</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="specialty" value="general">
+                      <span class="checkmark"></span>
+                      <span class="option-text">General Practitioner</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Topics Filter -->
+              <div class="filter-section">
+                <div class="filter-header" (click)="updateTopicsFilter(!filters().topics)">
+                  <span class="filter-title">Topics</span>
+                  <i class="bi" [class]="filters().topics ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                </div>
+                <div class="filter-content" [class.expanded]="filters().topics">
+                  <div class="filter-options">
+                    <!-- Topic options would go here -->
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Speakers Filter -->
+              <div class="filter-section">
+                <div class="filter-header" (click)="updateSpeakersFilter(!filters().speakers)">
+                  <span class="filter-title">Speakers</span>
+                  <i class="bi" [class]="filters().speakers ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                </div>
+                <div class="filter-content" [class.expanded]="filters().speakers">
+                  <div class="filter-options">
+                    <!-- Speaker options would go here -->
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Pharma & Associations Filter -->
+              <div class="filter-section">
+                <div class="filter-header" (click)="updatePharmaAssociationsFilter(!filters().pharmaAssociations)">
+                  <span class="filter-title">Pharma & associations</span>
+                  <i class="bi" [class]="filters().pharmaAssociations ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                </div>
+                <div class="filter-content" [class.expanded]="filters().pharmaAssociations">
+                  <div class="filter-options">
+                    <!-- Pharma & associations options would go here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Content Area -->
+        <div class="col-lg-9 col-md-8">
+          <div class="webinars-content">
+            <div class="webinars-grid">
+              <div class="row g-4">
+                @for (webinar of filteredWebinarsYouMayLike().slice(0, 4); track webinar.id) {
+                  <div class="col-lg-6 col-md-12">
+                    <app-suggested-webinar-card [webinar]="webinar"></app-suggested-webinar-card>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

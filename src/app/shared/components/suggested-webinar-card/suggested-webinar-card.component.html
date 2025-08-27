@@ -1,0 +1,79 @@
+<div class="suggested-webinar-card">
+  <!-- PDGI Indonesia Header -->
+  <div class="card-header">
+    <div class="sponsor-info">
+      <img 
+        [src]="webinar().instructor.avatarUrl" 
+        [alt]="webinar().instructor.name"
+        class="sponsor-avatar"
+        (error)="onInstructorImageError($event)">
+      <div class="sponsor-details">
+        <h6 class="sponsor-name">{{ webinar().instructor.organization || 'PDGI Indonesia' }}</h6>
+        <p class="sponsor-meta">Sponsored by Roche • 2845 followers • 30 min ago</p>
+      </div>
+    </div>
+    <button class="follow-btn">+ Follow</button>
+  </div>
+
+  <!-- Main Card Image -->
+  <div class="card-image">
+    <img 
+      [src]="webinar().thumbnailUrl" 
+      [alt]="webinar().title"
+      class="webinar-image"
+      (error)="onImageError($event)"
+      loading="lazy">
+    <div class="duration-badge">{{ webinar().duration || '24:50' }}</div>
+  </div>
+
+  <!-- Card Content -->
+  <div class="card-content">
+    <!-- Credits Badge -->
+    <div class="credits-section">
+      <div class="credits-badge">
+        <i class="bi bi-star-fill"></i>
+        <span>{{ webinar().credits }} Credits</span>
+        @if (getExpiryDays() > 0) {
+          <span class="expiry-text">(Expiring in {{ getExpiryDays() > 20 ? '23h 30m' : getExpiryDays() + ' days' }})</span>
+        }
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h3 class="webinar-title">{{ webinar().title }}</h3>
+
+    <!-- Key Highlights -->
+    <div class="key-highlights">
+      <h4 class="highlights-title">KEY HIGHLIGHTS</h4>
+      <p class="highlights-text">Manage chronic and complex diseases</p>
+    </div>
+
+    <!-- Engagement Stats -->
+    <div class="engagement-stats">
+      <span class="stat-item">{{ webinar().participants || 20 }} Likes</span>
+      <span class="stat-separator">•</span>
+      <span class="stat-item">12 Comments</span>
+      <span class="views-count">750 Views</span>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn">
+        <i class="bi bi-hand-thumbs-up"></i>
+        <span>Like</span>
+      </button>
+      <button class="action-btn">
+        <i class="bi bi-chat"></i>
+        <span>Comment</span>
+      </button>
+      <button class="action-btn">
+        <i class="bi bi-arrow-repeat"></i>
+        <span>Repost</span>
+      </button>
+      <button class="action-btn">
+        <i class="bi bi-share"></i>
+        <span>Share</span>
+      </button>
+    </div>
+  </div>
+</div>

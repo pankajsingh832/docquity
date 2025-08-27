@@ -1,0 +1,43 @@
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-title h4 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+.section-title p {
+  font-size: 0.9rem;
+}
+
+.view-all-btn {
+  color: #007bff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #0056b3;
+    
+    i {
+      transform: translateX(2px);
+    }
+  }
+  
+  i {
+    transition: transform 0.3s ease;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

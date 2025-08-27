@@ -1,0 +1,146 @@
+<header class="main-header">
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="container-fluid">
+      <div class="nav-content d-flex align-items-center justify-content-between">
+        <!-- Left: Logo -->
+        <div class="logo-section d-flex align-items-center">
+          <div class="logo-icon me-2">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="16" fill="#E53E3E"/>
+              <path d="M12 10L22 16L12 22V10Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Center: Search Bar -->
+        <div class="search-section flex-grow-1 mx-4">
+          <div class="search-container">
+            <input 
+              type="text" 
+              class="search-input" 
+              placeholder="Search in docquity">
+            <button class="search-btn">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Navigation + Profile -->
+        <div class="right-section d-flex align-items-center">
+          <!-- Mobile Menu Button (visible only on mobile) -->
+          <button class="mobile-menu-btn me-2" (click)="toggleMobileMenu()" type="button">
+            <i class="bi" [ngClass]="isMobileMenuOpen() ? 'bi-x' : 'bi-list'"></i>
+          </button>
+          
+          <!-- Navigation Items -->
+          <div class="nav-items d-flex align-items-center me-4">
+            <a class="nav-item" routerLink="/">
+              <i class="bi bi-house"></i>
+              <span>Home</span>
+            </a>
+            <a class="nav-item active" routerLink="/webinars">
+              <i class="bi bi-camera-video-fill"></i>
+              <span>Webinar</span>
+            </a>
+            <div class="nav-item calendar-nav-item" [class.active]="isCalendarOpen()">
+              <button class="calendar-btn" (click)="toggleCalendar()" type="button">
+                <i class="bi bi-calendar3"></i>
+                <span>Calendar</span>
+              </button>
+              
+              <!-- Calendar Dropdown -->
+              @if (isCalendarOpen()) {
+                <div class="calendar-dropdown-overlay" (click)="closeCalendar()">
+                  <div class="calendar-dropdown" (click)="$event.stopPropagation()">
+                    <app-calendar (dateSelected)="onDateSelected($event)"></app-calendar>
+                  </div>
+                </div>
+              }
+            </div>
+            <a class="nav-item" routerLink="/notifications">
+              <i class="bi bi-bell"></i>
+              <span>Notifications</span>
+              <span class="notification-badge">3</span>
+            </a>
+          </div>
+
+          <!-- Post Button -->
+          <button class="post-btn me-3">
+            <i class="bi bi-plus"></i>
+            <span class="post-btn-text">Post</span>
+          </button>
+
+          <!-- Profile -->
+          <div class="profile-section">
+            <div class="profile-info d-flex align-items-center">
+              <img 
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" 
+                alt="Profile" 
+                class="profile-avatar">
+              <span class="profile-name">Aaron</span>
+              <i class="bi bi-chevron-down ms-1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  @if (isMobileMenuOpen()) {
+    <div class="mobile-menu-overlay" (click)="closeMobileMenu()">
+      <div class="mobile-menu" (click)="$event.stopPropagation()">
+        <!-- Search Section (for mobile) -->
+        <div class="mobile-search-section">
+          <div class="search-container">
+            <input 
+              type="text" 
+              class="search-input" 
+              placeholder="Search in docquity">
+            <button class="search-btn">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Navigation Items -->
+        <div class="mobile-nav-items">
+          <a class="mobile-nav-item" routerLink="/" (click)="closeMobileMenu()">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
+          </a>
+          <a class="mobile-nav-item active" routerLink="/webinars" (click)="closeMobileMenu()">
+            <i class="bi bi-camera-video-fill"></i>
+            <span>Webinar</span>
+          </a>
+          <button class="mobile-nav-item" (click)="toggleCalendar()" type="button">
+            <i class="bi bi-calendar3"></i>
+            <span>Calendar</span>
+          </button>
+          <a class="mobile-nav-item" routerLink="/notifications" (click)="closeMobileMenu()">
+            <i class="bi bi-bell"></i>
+            <span>Notifications</span>
+            <span class="notification-badge">3</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Page Title Section -->
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="page-title-section">
+        <h1 class="page-title">Webinar</h1>
+        
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+          <a class="tab-item active" href="#">For you</a>
+          <a class="tab-item" href="#">Live</a>
+          <a class="tab-item" href="#">Upcoming</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,58 @@
+<div class="upcoming-webinar-card">
+  <!-- Hero Banner Image -->
+  <div class="hero-banner">
+    <img 
+      [src]="webinar().thumbnailUrl" 
+      [alt]="webinar().title"
+      class="banner-image"
+      (error)="onImageError($event)"
+      loading="lazy">
+  </div>
+
+  <!-- Card Content -->
+  <div class="card-content">
+    <!-- Credits Badge -->
+    <div class="credits-section">
+      <div class="credits-badge">
+        <i class="bi bi-star-fill"></i>
+        <span>{{ webinar().credits }} Credits</span>
+        @if (getExpiryDays() > 0) {
+          <span class="expiry-text">(Expiring in {{ getExpiryDays() }} days)</span>
+        }
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h3 class="webinar-title">{{ webinar().title }}</h3>
+
+    <!-- Instructor Info -->
+    <div class="instructor-info">
+      <img 
+        [src]="webinar().instructor.avatarUrl" 
+        [alt]="webinar().instructor.name"
+        class="instructor-avatar"
+        (error)="onInstructorImageError($event)">
+      <span class="instructor-name">by {{ webinar().instructor.name }}</span>
+    </div>
+
+    <!-- Key Highlights -->
+    <div class="key-highlights">
+      <h4 class="highlights-title">KEY HIGHLIGHTS</h4>
+      <p class="highlights-text">Manage chronic and complex diseases</p>
+    </div>
+
+    <!-- Schedule Section -->
+    <div class="schedule-section">
+      <div class="schedule-info">
+        <span class="schedule-label">Goes live on</span>
+        <span class="schedule-date">{{ formatDate(webinar().date) }}</span>
+      </div>
+      
+      <!-- Notify Button -->
+      <button class="notify-btn">
+        <i class="bi bi-bell"></i>
+        Notify me
+      </button>
+    </div>
+  </div>
+</div>

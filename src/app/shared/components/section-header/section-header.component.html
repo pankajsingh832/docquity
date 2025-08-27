@@ -1,0 +1,15 @@
+<div class="section-header d-flex justify-content-between align-items-center mb-4">
+  <div class="section-title">
+    <h4 class="mb-0 fw-bold">{{ title() }}</h4>
+    @if (subtitle()) {
+      <p class="text-muted mb-0 mt-1">{{ subtitle() }}</p>
+    }
+  </div>
+  
+  @if (showViewAll()) {
+    <button class="btn btn-link text-decoration-none p-0 view-all-btn">
+      View all
+      <i class="bi bi-arrow-right ms-1"></i>
+    </button>
+  }
+</div>

@@ -1,0 +1,74 @@
+<div class="continue-watching-card">
+  <!-- Video Thumbnail -->
+  <div class="thumbnail-container">
+    <!-- Medical themed background with content -->
+    <div class="medical-content-bg">
+      <!-- Sponsor logos -->
+      <div class="sponsor-logos">
+        <div class="logo logo-left">
+          <span class="logo-text">COLUMBIA ASIA</span>
+          <span class="logo-sub">Hospitality</span>
+        </div>
+        <div class="logo logo-right">
+          <span class="logo-text">Shopify</span>
+        </div>
+      </div>
+      
+      <!-- Main content -->
+      <div class="content-overlay">
+        <h2 class="content-title">More Than<br>Skin Deep:<br>Treating Eczema<br>and Allergy</h2>
+        
+        <!-- Doctor avatar -->
+        <div class="doctor-avatar">
+          <img 
+            [src]="webinar().instructor.avatarUrl" 
+            [alt]="webinar().instructor.name"
+            class="doctor-image">
+        </div>
+      </div>
+      
+      <!-- Additional content -->
+      <div class="bottom-content">
+        <div class="content-details">
+          <span class="detail-line">Dr. Skin dermatologist</span>
+          <span class="detail-line">Experts dermatologist</span>
+          <span class="detail-line">National dermatology</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Play button overlay -->
+    <div class="play-overlay">
+      <button class="btn-play">
+        <i class="bi bi-play-fill"></i>
+      </button>
+    </div>
+    
+    <!-- Duration badge -->
+    <div class="duration-badge">
+      {{ webinar().duration }}
+    </div>
+    
+    <!-- Progress bar -->
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progressPercentage()"></div>
+    </div>
+  </div>
+
+  <!-- Card Content -->
+  <div class="card-content">
+    <!-- Title -->
+    <h3 class="webinar-title">{{ webinar().title }}</h3>
+    
+    <!-- Instructor info -->
+    <div class="instructor-info">
+      <img 
+        [src]="webinar().instructor.avatarUrl" 
+        [alt]="webinar().instructor.name"
+        class="instructor-avatar"
+        (error)="onAvatarError($event)">
+      <span class="instructor-name">by {{ webinar().instructor.name }}</span>
+      <span class="time-left">• {{ getTimeLeft() }} min left</span>
+    </div>
+  </div>
+</div>

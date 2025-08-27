@@ -1,0 +1,493 @@
+.webinar-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  &.live-card {
+    border: 2px solid #dc3545;
+  }
+  
+  &.blue-medical-card,
+  &.green-medical-card,
+  &.live-video-card {
+    .thumbnail-container {
+      aspect-ratio: 16/9;
+    }
+  }
+}
+
+.thumbnail-container {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  
+  .thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+}
+
+.webinar-card:hover .thumbnail {
+  transform: scale(1.05);
+}
+
+// Medical themed backgrounds
+.medical-content-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  &.blue-theme {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #312e81 100%);
+  }
+  
+  &.green-theme {
+    background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%);
+  }
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  
+  .logo {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    
+    .logo-text {
+      font-size: 10px;
+      font-weight: 600;
+      display: block;
+      line-height: 1.2;
+    }
+    
+    .logo-sub {
+      font-size: 8px;
+      opacity: 0.8;
+      display: block;
+      line-height: 1;
+    }
+    
+    &.red-logo {
+      background: rgba(239, 68, 68, 0.9);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    
+    &.yellow-badge {
+      background: rgba(251, 191, 36, 0.9);
+      border-radius: 4px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+  
+  .logo-right {
+    .logo-text {
+      font-size: 12px;
+    }
+  }
+}
+
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 80px;
+  transform: translateY(-50%);
+  
+  .content-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  &.green-content {
+    right: 16px;
+    
+    .content-title {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.doctor-avatar {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  
+  .doctor-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    object-fit: cover;
+  }
+}
+
+.process-badge {
+  background: rgba(251, 191, 36, 0.9);
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.doctor-info-card {
+  background: rgba(251, 191, 36, 0.9);
+  color: #000;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 200px;
+  
+  .doctor-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .doctor-details {
+    .doctor-name,
+    .doctor-title {
+      font-size: 10px;
+      font-weight: 600;
+      display: block;
+      line-height: 1.2;
+    }
+  }
+}
+
+.bottom-content {
+  position: absolute;
+  bottom: 35px;
+  left: 16px;
+  right: 16px;
+  
+  .content-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    
+    .detail-line {
+      font-size: 8px;
+      opacity: 0.8;
+      line-height: 1.2;
+    }
+  }
+}
+
+// Live video styles
+.live-video-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  .live-video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.live-controls {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.live-status {
+  display: flex;
+  gap: 8px;
+  
+  .live-badge {
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .viewer-count {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+}
+
+.live-actions {
+  display: flex;
+  gap: 4px;
+  
+  .live-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+// Credits badge styling
+.card-body .badge.bg-warning {
+  &.text-dark {
+    background-color: #f59e0b !important;
+    color: #000 !important;
+  }
+  
+  &.text-danger {
+    background-color: #ef4444 !important;
+    color: white !important;
+  }
+}
+.live-indicator {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  
+  .participants-count {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+  }
+}
+
+.duration-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.webinar-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.btn-play {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #007bff;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: white;
+    transform: scale(1.1);
+  }
+}
+
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.4;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.instructor-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.instructor-name {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.instructor-org {
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.tags .badge {
+  font-size: 0.7rem;
+  margin-left: 4px;
+}
+
+.card-actions {
+  margin-top: auto;
+}
+
+.btn-sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+// Related guideline styles
+.related-guideline {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+  
+  .guideline-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    
+    .guide-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    
+    .guideline-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  .guideline-title {
+    font-size: 13px;
+    color: #4b5563;
+    margin: 0;
+    line-height: 1.3;
+  }
+}
+
+.schedule-info {
+  background: #f3f4f6;
+  padding: 8px 12px;
+  border-radius: 6px;
+  
+  .schedule-text {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .medical-content-bg {
+    padding: 12px;
+  }
+  
+  .content-overlay {
+    .content-title {
+      font-size: 14px;
+    }
+    
+    &.green-content .content-title {
+      font-size: 12px;
+    }
+  }
+  
+  .doctor-avatar .doctor-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .doctor-info-card {
+    max-width: 160px;
+    padding: 6px;
+    
+    .doctor-image {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .doctor-details {
+      .doctor-name,
+      .doctor-title {
+        font-size: 9px;
+      }
+    }
+  }
+}

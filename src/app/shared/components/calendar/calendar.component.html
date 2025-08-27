@@ -1,0 +1,45 @@
+<div class="calendar">
+  <!-- Calendar Header -->
+  <div class="calendar-header">
+    <div class="calendar-nav">
+      <button class="nav-btn" (click)="previousMonth()" type="button">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <div class="month-year">
+        <span class="month-name">{{ currentMonthName }}</span>
+        <span class="year">{{ currentYear() }}</span>
+      </div>
+      <button class="nav-btn" (click)="nextMonth()" type="button">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+    <button class="today-btn" (click)="goToToday()" type="button">
+      Today
+    </button>
+  </div>
+
+  <!-- Day Names -->
+  <div class="calendar-days-header">
+    @for (dayName of dayNames; track dayName) {
+      <div class="day-name">{{ dayName }}</div>
+    }
+  </div>
+
+  <!-- Calendar Grid -->
+  <div class="calendar-grid">
+    @for (day of calendarDays(); track day.date.getTime()) {
+      <div 
+        class="calendar-day" 
+        [class.other-month]="!day.isCurrentMonth"
+        [class.today]="day.isToday"
+        [class.selected]="day.isSelected"
+        [class.has-events]="day.hasEvents"
+        (click)="selectDate(day)">
+        <span class="day-number">{{ day.day }}</span>
+        @if (day.hasEvents) {
+          <div class="event-indicator"></div>
+        }
+      </div>
+    }
+  </div>
+</div>

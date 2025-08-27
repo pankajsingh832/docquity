@@ -1,0 +1,24 @@
+ .app-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-content {
+      flex: 1;
+      background-color: #f8f9fa;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      
+      .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
